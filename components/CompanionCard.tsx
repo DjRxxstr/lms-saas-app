@@ -1,3 +1,5 @@
+// 'use client';
+// import { addToBookmarks } from '@/lib/actions/companion.actions';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -14,6 +16,10 @@ interface CompanionCardProps {
 const CompanionCard = (
     { id, name, topic, subject, duration, color }: CompanionCardProps
 ) => {
+
+    // const handleAddBookmark = (id: string) => {
+    //     addToBookmarks(id);
+    // }
     return (
         <article
             className='companion-card'
@@ -25,7 +31,10 @@ const CompanionCard = (
 
             <div className='flex justify-between items-center'>
                 <div className='subject-badge'>{subject}</div>
-                <button className='companion-bookmark'>
+                <button 
+                    className='companion-bookmark'
+                    // onClick={() => handleAddBookmark(id)}
+                    >
                     <Image
                         src='/icons/bookmark.svg'
                         alt="bookmark" width={12.5} height={15} />

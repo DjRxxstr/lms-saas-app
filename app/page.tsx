@@ -4,43 +4,31 @@ import CompanionsList from '@/components/CompanionsList'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { recentSessions } from '@/constants'
+import { getAllCompanions, getRecentSessions } from '@/lib/actions/companion.actions'
+import { getSubjectColor } from '@/lib/utils'
 import React from 'react'
 
-const Page = () => {
+const Page = async () => {
+  const companions = await getAllCompanions({limit: 3});
+  const recentSessionsCompanions = await getRecentSessions();
+
   return (
     <main>
-      <h1 className='text-2xl underline mx-2'>Popular Companions</h1>
+      <h1 className='text-2xl underline mx-2'>Dashboard</h1>
 
       <section className='home-section'>
-        <CompanionCard
-          id="1"
-          name="Neura the Brainy Explorer"
-          topic='Neural Network of the Brain'
-          subject='Science'
-          duration={45}
-          color="#ffda6e"/>
-
-        <CompanionCard
-          id="2"
-          name="Takaful the Brainy Explorer"
-          topic='Neural Network of the Brain'
-          subject='Science'
-          duration={45}
-          color="#e5d0ff"/>
-
-        <CompanionCard
-          id="3"
-          name="Universal the Brainy Explorer"
-          topic='Neural Network of the Brain'
-          subject='Science'
-          duration={45}
-          color="#BDE7FF"/>
+        {companions.map((companion) => (
+          <CompanionCard
+          key={companion.id}
+          color={getSubjectColor(companion.subject)}
+          {...companion}/>
+        ))}
       </section>
 
       <section className='home-section'>
         <CompanionsList 
           title="Recently completed sessions"
-          companions={recentSessions}
+          companions={recentSessionsCompanions}
           classNames="w-2/3 max-lg:w-full"
           />
         <CompanionBuildNew />
