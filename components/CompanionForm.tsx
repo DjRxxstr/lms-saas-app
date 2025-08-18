@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
+    // FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -42,7 +42,7 @@ const formSchema = z.object({
 const CompanionForm = () => {
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
-        // @ts-expect-error
+        // @ts-expect-error: igonre this error
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: '',
@@ -75,10 +75,10 @@ const CompanionForm = () => {
         <Form {...form}>
             
             <form 
-            // @ts-expect-error
+            // @ts-expect-error: ignore this error
             onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="name"
                     render={({ field }) => (
@@ -96,7 +96,7 @@ const CompanionForm = () => {
                 />
 
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="subject"
                     render={({ field }) => (
@@ -132,7 +132,7 @@ const CompanionForm = () => {
                 />
 
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="topic"
                     render={({ field }) => (
@@ -150,7 +150,7 @@ const CompanionForm = () => {
                 />
 
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="voice"
                     render={({ field }) => (
@@ -182,7 +182,7 @@ const CompanionForm = () => {
                 />
 
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="style"
                     render={({ field }) => (
@@ -214,7 +214,7 @@ const CompanionForm = () => {
                 />
 
                 <FormField
-                    // @ts-expect-error
+                    // @ts-expect-error: ignore this error
                     control={form.control}
                     name="duration"
                     render={({ field }) => (

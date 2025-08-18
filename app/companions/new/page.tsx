@@ -39,7 +39,7 @@ const NewCompanion = async () => {
               You Reached Your Limit
             </h1>
 
-            <p>You've reached your companion limit. Upgrade to
+            <p>You&#39;ve reached your companion limit. Upgrade to
               create more companions and premium features
             </p>
             <Link

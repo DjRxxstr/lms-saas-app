@@ -46,7 +46,7 @@ const CompanionComponent = ({
                 lottieRef.current?.stop();
             }
         }
-    });
+    },[isSpeaking]);
 
     useEffect(() => {
         const onCallStart = () => {
@@ -122,7 +122,7 @@ const CompanionComponent = ({
         }
 
 
-        // @ts-expect-error
+        // @ts-expect-error: igonre this error
         vapi.start(configureAssistant(voice, style), assistantOverrides);
 
     }
